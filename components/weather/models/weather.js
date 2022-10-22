@@ -7,6 +7,7 @@ class Weather {
   wind;
   humidity;
   pressure;
+  uvi;
   sunrise;
   sunset;
 
@@ -19,6 +20,7 @@ class Weather {
     wind,
     humidity,
     pressure,
+    uvi,
     sunrise,
     sunset
   ) {
@@ -28,6 +30,7 @@ class Weather {
     this.wind = wind;
     this.humidity = humidity;
     this.pressure = pressure;
+    this.uvi = uvi;
     this.sunrise = sunrise;
     this.sunset = sunset;
   }
@@ -81,7 +84,7 @@ class Weather {
       )}</p>
       <p class="weather__temperature">${Math.round(
         parseInt(this.temperature) - 273.15
-      )}<span>&#176;</span></p>
+      )}&#176;</p>
       <p class="weather__text" >${this.text}</p>
     `;
   }
@@ -104,6 +107,7 @@ class Weather {
         <p><span>${this.wind} kph</span> Wind</p>
         <p><span>${this.humidity}%</span> Humidity</p>
         <p><span>${this.pressure}"Hg</span> Pressure</p>
+        <p><span>${this.uvi}</span> Uvi</p>
         <p><span>${new Date(this.sunrise * 1000)
           .toString()
           .split(" ")[4]
@@ -128,6 +132,7 @@ class Weather {
       json.wind_speed,
       json.humidity,
       json.pressure,
+      json.uvi,
       json.sunrise,
       json.sunset
     );

@@ -25,7 +25,6 @@ body {
 .weather__day {
   display: inline-block;
   min-width: 120px;
-  min-height: 150px;
   background: #140846a1;
   border-radius: 5px;
   text-align: center;
@@ -33,7 +32,8 @@ body {
   cursor: pointer;
 }
 
-.weather__day:hover {
+.weather__day:hover,
+.selected {
   background: #2e2552;
   box-shadow: 0 0 10px #333;
   transition: 0.3s;
@@ -45,9 +45,9 @@ body {
 
 .weather__detailed-day {
   max-width: 80%;
-  margin: auto;
+  margin: 40px auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
@@ -60,9 +60,11 @@ body {
   font-size: 3em;
 }
 
-.weather__detailed-info,
+.weather__detailed-info {
+  width: 50%;
+}
 .weather__base-info {
-  min-width: 30%;
+  width: 20%;
 }
 
 .weather__base-info {
@@ -76,6 +78,7 @@ body {
 }
 
 .weather__detailed-info p {
+  width: 150px;
   display: inline-block;
   text-transform: uppercase;
 }
@@ -100,4 +103,64 @@ body {
 
 .weather__img {
   width: 60px;
+}
+
+@media screen and (max-width: 1290px) {
+  .weather {
+    padding: 50px 10px;
+  }
+}
+
+@media screen and (max-width: 1178px) {
+  .weather__day-list {
+    text-align: -webkit-center;
+  }
+  .weather__day {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+  }
+  .weather__day p {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .weather__detailed-day {
+    display: block;
+  }
+  .weather__base-info,
+  .weather__detailed-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .weather__detailed-day .weather__temperature,
+  .weather__detailed-day .weather__date,
+  .weather__detailed-day .weather__day-name,
+  .weather__detailed-day .weather__text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .weather__detailed-day {
+    width: 100%;
+  }
+  .weather__detailed-info p {
+    font-size: 14px;
+  }
+  .weather__detailed-info p span {
+    font-size: 16px;
+  }
+  .weather__detailed-info {
+    display: inline-block;
+  }
+  .weather__detailed-info p {
+    width: 35%;
+  }
 }

@@ -2,6 +2,7 @@ class WeatherRenderer {
   rootElement;
   weatherHTMLElement;
   dayListHTMLElement;
+  dayHTMLElement;
   detailedDayHTMLElement;
 
   constructor(rootElement) {
@@ -18,22 +19,13 @@ class WeatherRenderer {
     this.dayListHTMLElement = this.getDayListHTMLElement(dayList);
 
     this.weatherHTMLElement.appendChild(this.dayListHTMLElement);
+    this.weatherHTMLElement.insertBefore(
+      this.getWeatherDetailedHTMLElement(dayList[0]),
+      this.dayListHTMLElement
+    );
 
     this.rootElement.appendChild(this.weatherHTMLElement);
-
-//  this.weatherHTMLElement.addEventListener("click", this.setSelected);
   }
-
-//   setSelected = (event) => {
-//     let currentElement = event.target;
-//     this.dayListHTMLElement.querySelectorAll(".weather__day").forEach((day) => {
-//       day.classList.add("selected")
-// //      if (day.getAttribute("data-id") === this.detailedDayHTMLElement.getAttribute("data-id")) {
-
-//   //    }
-//     })
-//     //currentElement.classList.add("selected");
-//   }
 
   getLocationHTMLElement(location) {
     return this.createElement("h2", "weather__location", location);
@@ -46,28 +38,27 @@ class WeatherRenderer {
   }
 
   getDayHTMLElement(day) {
-    const dayHTMLElement = this.createElement(
+    this.dayHTMLElement = this.createElement(
       "div",
       "weather__day",
       day.getDayInfo()
     );
-    dayHTMLElement.setAttribute("data-id", day.id);
-    dayHTMLElement.insertBefore(
+    this.dayHTMLElement.setAttribute("data-id", day.id);
+    this.dayHTMLElement.insertBefore(
       this.addImage(day),
-      dayHTMLElement.querySelector(".weather__text")
+      this.dayHTMLElement.querySelector(".weather__text")
     );
-    return dayHTMLElement;
+    return this.dayHTMLElement;
   }
 
   appendDaysInList(dayList) {
     dayList.forEach((day) => {
       this.dayListHTMLElement.appendChild(this.getDayHTMLElement(day));
     });
-    
-    this.dayListHTMLElement.prepend(
-      this.getWeatherDetailedHTMLElement(dayList[0])
-    );
 
+    // this.dayListHTMLElement.prepend(
+    //   this.getWeatherDetailedHTMLElement(dayList[0])
+    // );
   }
 
   updateDayList(dayList) {
