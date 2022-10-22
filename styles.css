@@ -1,0 +1,103 @@
+body,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+}
+
+.weather {
+  min-height: 100vh;
+  background: linear-gradient(#5827df, #95abf5);
+  color: aliceblue;
+  padding: 50px 100px;
+  text-align: center;
+}
+
+.weather__location {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.weather__day {
+  display: inline-block;
+  min-width: 120px;
+  min-height: 150px;
+  background: #140846a1;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.weather__day:hover {
+  background: #2e2552;
+  box-shadow: 0 0 10px #333;
+  transition: 0.3s;
+}
+
+.weather__temperature {
+  font-size: 1.5em;
+}
+
+.weather__detailed-day {
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.weather__detailed-day .weather__img {
+  width: 200px;
+  height: 200px;
+}
+
+.weather__detailed-day .weather__temperature {
+  font-size: 3em;
+}
+
+.weather__detailed-info,
+.weather__base-info {
+  min-width: 30%;
+}
+
+.weather__base-info {
+  text-align: left;
+}
+.weather__base-info p,
+.weather__detailed-info p,
+.weather__detailed-info p span,
+.weather__day {
+  margin: 10px;
+}
+
+.weather__detailed-info p {
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.weather__detailed-info p span {
+  font-size: 1.5em;
+  display: block;
+}
+
+.weather__text {
+  text-transform: capitalize;
+}
+
+.weather__day-name,
+.weather__date {
+  font-weight: bold;
+}
+
+.weather__date {
+  font-size: 1.2em;
+}
+
+.weather__img {
+  width: 60px;
+}
