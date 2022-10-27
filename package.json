@@ -1,0 +1,16 @@
+{
+  "name": "ts-weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-styles": "sass styles.scss ./dist/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/iradamamedova/js-weather-app/tree/iradamamedova-ts-1)"
+  },
+  "author": "",
+  "license": "ISC"
+}
